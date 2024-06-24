@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Spinner from "./Spinner";
-import "../App.css"
+import "../App.css";
 
 export default function GenerativeAi() {
   const [answer, setAnswer] = useState("");
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const genAI = new GoogleGenerativeAI(
-    "AIzaSyDAhR-7Rxwibz-H2BXCcsR_5pzhGVfxvLE"
-  );
+  const apiKey = import.meta.env.VITE_REACT_APP_AI_CHAT_BOX_API;
+  const genAI = new GoogleGenerativeAI(apiKey);
 
   async function run() {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
