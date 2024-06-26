@@ -33,28 +33,27 @@ export default function GenerativeAi() {
 
   return (
     <div className="container mt-10">
-      <form onSubmit={handleSubmit} className="d-flex">
-        <input
-          type="search"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className="form-control me-2"
-          placeholder="Enter text for generate your answer... "
-        />
-        <button type="submit" className="btn btn-outline-dark">
-          Generate
-        </button>
-      </form>
-      {!answer && (
-        <div className="text-center fs-5"> Welcome to Generative Ai</div>
-      )}
-      {loading && <Spinner />}
+      <div className="text-center fs-5"> Welcome to SI ( Smart Intelligence )</div>
+
       {!loading && (
         <pre
           className="mt-5 answer"
           dangerouslySetInnerHTML={{ __html: answer.replaceAll("*", " ") }}
         ></pre>
       )}
+      <form onSubmit={handleSubmit} className="d-flex promptBox container">
+        <input
+          type="search"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          className="form-control me-2 searchBox"
+          placeholder="Enter text for generate your answer... "
+        />
+        <button type="submit" className="btn btn-outline-dark">
+          Generate
+        </button>
+      </form>
+      {loading && <Spinner />}
     </div>
   );
 }
