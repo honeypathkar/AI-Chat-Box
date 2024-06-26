@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Spinner from "./Spinner";
 import "../App.css";
+import SendIcon from '@mui/icons-material/Send';
+
 
 export default function GenerativeAi() {
   const [answer, setAnswer] = useState("");
@@ -33,7 +35,8 @@ export default function GenerativeAi() {
 
   return (
     <div className="container mt-10">
-      <div className="text-center fs-5"> Welcome to SI ( Smart Intelligence )</div>
+      <div className="text-center text-3xl"> Welcome to SI ( Smart Intelligence )</div>
+      <div className="flex justify-center">
 
       {!loading && (
         <pre
@@ -41,16 +44,17 @@ export default function GenerativeAi() {
           dangerouslySetInnerHTML={{ __html: answer.replaceAll("*", " ") }}
         ></pre>
       )}
-      <form onSubmit={handleSubmit} className="d-flex promptBox container">
+      </div>
+      <form onSubmit={handleSubmit} className="flex promptBox container">
         <input
           type="search"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          className="form-control me-2 searchBox"
+          className="searchBox rounded-full py-2 pl-4 border"
           placeholder="Enter text for generate your answer... "
         />
-        <button type="submit" className="btn btn-outline-dark">
-          Generate
+        <button type="submit" className="btn rounded-full border">
+          <SendIcon sx={{color: "#FFF"}}/>
         </button>
       </form>
       {loading && <Spinner />}
