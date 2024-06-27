@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Spinner from "./Spinner";
 import "../App.css";
-import SendIcon from "@mui/icons-material/Send";
 import ChatGPTTypewriterEffect from "react-chatgpt-typewriter";
+import SearchBox from "./SearchBox";
 
-export default function GenerativeAi() {
+export default function GenerativeAi(props) {
+  const { prompt, setPrompt } = props;
   const [answer, setAnswer] = useState("");
-  const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isWriting, setIsWriting] = useState(true); // State to control cursor visibility
   const apiKey = import.meta.env.VITE_REACT_APP_AI_CHAT_BOX_API;
   const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -48,34 +47,20 @@ export default function GenerativeAi() {
                 width: "2em",
                 height: "3em",
                 marginLeft: "1em",
-              }}
-              onFinished={() => {
-                setIsWriting(false); // Hide cursor when writing is finished
-              }}
-              onStarted={() => {
-                setIsWriting(true); // Show cursor when writing starts
+                color: "white",
               }}
               text={answer.replaceAll("*", " ").replaceAll("#", "")}
             />
-            {isWriting && <span className="text-white text-5xl ">.</span>} {/* Render cursor conditionally */}
           </pre>
         )}
       </div>
-      <form onSubmit={handleSubmit} className="flex promptBox container">
-        <input
-          type="search"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className="searchBox rounded-full py-2 px-4 border"
-          placeholder="Enter text for generate your answer... "
+      <div className="promptBox container">
+        <SearchBox
+          prompt={prompt}
+          handleSubmit={handleSubmit}
+          setPrompt={setPrompt}
         />
-        <button
-          type="submit"
-          className="btn rounded-full border ml-1 bg-[#121223] px-3 py-2"
-        >
-          <SendIcon sx={{ color: "#FFF" }} />
-        </button>
-      </form>
+      </div>
       {loading && <Spinner />}
     </div>
   );

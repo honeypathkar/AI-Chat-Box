@@ -1,12 +1,21 @@
-import loading from './images/loading.gif'
-import React from 'react'
+import React from "react";
+import "../App.css";
 
 export default function Spinner() {
   return (
-    <div>
-      <div className='text-center d-flex justify-content-center my-60'>
-        <img src={loading} alt='loading' className='w-40'/>
+    <div className="flex justify-center item-center my-72">
+      <div className="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  )
+  );
 }

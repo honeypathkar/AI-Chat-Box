@@ -1,10 +1,11 @@
 // import axios from "axios";
-// import { useEffect, useState } from "react";
+import {useState } from "react";
 
 // import Slidbar from "./components/Slidbar";
 import GenerativeAi from "./components/GenerativeAi";
 
 function App() {
+  const [prompt, setPrompt] = useState("");
   // const [myData, setMyData] = useState([]);
   // const [error, setError] = useState("");
 
@@ -44,7 +45,7 @@ function App() {
     </div> */
     // <h1>Hello</h1>
     <>
-      <GenerativeAi />
+      <GenerativeAi prompt={prompt} setPrompt={setPrompt} />
     </>
   );
 }
