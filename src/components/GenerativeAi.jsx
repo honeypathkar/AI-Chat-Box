@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import "../App.css";
 import ChatGPTTypewriterEffect from "react-chatgpt-typewriter";
 import SearchBox from "./SearchBox";
+import Card from "./Card";
 
 export default function GenerativeAi(props) {
   const { prompt, setPrompt } = props;
@@ -36,8 +37,14 @@ export default function GenerativeAi(props) {
   return (
     <div className="container mt-10">
       <div className="text-center text-3xl">
-        Welcome to SI ( Smart Intelligence )
+        Welcome to SI <br />( Smart Intelligence )
       </div>
+      {!answer && !loading && (
+        <div className="flex justify-center my-40">
+          <Card />
+        </div>
+      )}
+
       <div className="flex justify-center">
         {!loading && (
           <pre className="mt-5 answer">
