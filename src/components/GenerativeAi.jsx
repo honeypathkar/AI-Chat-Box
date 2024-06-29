@@ -40,7 +40,7 @@ export default function GenerativeAi(props) {
         Welcome to SI <br />( Smart Intelligence )
       </div>
       {!answer && !loading && (
-        <div className="flex justify-center my-40">
+        <div className="flex justify-center mt-20 mb-10">
           <Card />
         </div>
       )}

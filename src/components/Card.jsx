@@ -26,14 +26,14 @@ export default function Card() {
           style={{ r: "5" }}
           className="glass cursor-pointer"
         >
-          <ElectricBoltIcon sx={{ fontSize: "50px" }} />
+          <ElectricBoltIcon sx={{ fontSize: 80 }} />
         </div>
         <div
           data-text="Safe Browsing"
           style={{ r: "25" }}
           className="glass cursor-pointer"
         >
-          <SafetyCheckIcon sx={{ fontSize: "50px" }} />
+          <SafetyCheckIcon sx={{ fontSize: 80 }} />
         </div>
       </div>
     </div>

@@ -168,7 +168,17 @@ body {
   color: #fff;
 }
 
-.container1 .glass svg {
-  font-size: 2.5em;
-  fill: #fff;
+@media screen and (max-width: 600px) {
+  .container1 {
+    display: block;
+  }
+
+  .container1 .glass {
+    margin-bottom: 10px;
+  }
+
+  .container1:hover .glass {
+    transform: rotate(0deg);
+    margin-bottom: 20px;
+  }
 }
